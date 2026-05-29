@@ -18,6 +18,17 @@
             font-weight: bold;
         }
 
+        /* Headline bar */
+        #headlineBar {
+            background: #333;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+
         /* Search bar */
         #searchBarContainer {
             background: #b71c1c;
@@ -59,11 +70,16 @@
             text-align: center;
         }
 
-        /* Video aligned left */
+        /* Left-aligned video */
         .video-container {
             display: flex;
             justify-content: flex-start;
             align-items: center;
+        }
+
+        /* MP4 video styling */
+        video {
+            border-radius: 6px;
         }
 
         /* BIGGER POPUP AD (TOP-RIGHT FLOATING) */
@@ -94,6 +110,11 @@
 
 <header>Totally Real News Network</header>
 
+<!-- Headline bar -->
+<div id="headlineBar">
+    Todays Headline | Other Topic | Other Topic | Other Topic | Other Topic | Other Topic | Other Topic | Other Topic
+</div>
+
 <!-- Search bar -->
 <div id="searchBarContainer">
     <input id="searchBar" type="text" placeholder="Search... (try typing: remove-ads)">
@@ -111,13 +132,11 @@
 
         <h3>Exclusive Video Report</h3>
 
-        <!-- Left-aligned autoplay looping video -->
+        <!-- Left-aligned autoplay looping MP4 video -->
         <div class="video-container">
-            <iframe width="560" height="315"
-                src="https://www.youtube.com/embed/r5BRLtWwVeU?autoplay=1&loop=1&controls=0&showinfo=0&modestbranding=1&rel=0&mute=1&playlist=r5BRLtWwVeU"
-                frameborder="0"
-                allow="autoplay; encrypted-media">
-            </iframe>
+            <video autoplay loop muted playsinline width="560">
+                <source src="Breaking News.mp4" type="video/mp4">
+            </video>
         </div>
     </div>
 
