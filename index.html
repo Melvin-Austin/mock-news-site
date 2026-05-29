@@ -8,7 +8,6 @@
             font-family: Arial, sans-serif;
             margin: 0;
             background: #f2f2f2;
-            text-align: center;
         }
         header {
             background: #d32f2f;
@@ -16,6 +15,7 @@
             padding: 20px;
             font-size: 32px;
             font-weight: bold;
+            text-align: center;
         }
 
         /* Headline bar */
@@ -25,13 +25,13 @@
             padding: 10px;
             font-size: 18px;
             font-weight: bold;
-            white-space: nowrap;
-            overflow-x: auto;
+            text-align: left;
+            padding-left: 20px;
         }
         #headlineBar a {
             color: white;
             text-decoration: none;
-            margin: 0 10px;
+            margin-right: 10px;
         }
         #headlineBar a:hover {
             text-decoration: underline;
@@ -41,6 +41,7 @@
         #searchBarContainer {
             background: #b71c1c;
             padding: 10px;
+            text-align: center;
         }
         #searchBar {
             width: 60%;
@@ -118,9 +119,10 @@
 
 <header>Totally Real News Network</header>
 
-<!-- Headline bar with ONE link -->
+<!-- Headline bar -->
 <div id="headlineBar">
-    <a href="https://melvin-austin.github.io/mock-news-site/Todays-Headline">Todays Headline</a>
+    <a href="https://melvin-austin.github.io/mock-news-site/Todays-Headlines">Todays Headlines</a> |
+    <a href="https://melvin-austin.github.io/mock-news-site/Civics-Project">Civics Project</a> |
 </div>
 
 <!-- Search bar -->
@@ -143,7 +145,7 @@
         <!-- Left-aligned autoplay looping MP4 video -->
         <div class="video-container">
             <video autoplay loop muted playsinline width="560">
-                <source src="Breaking-News.mp4" type="video/mp4">
+                <source src="./Breaking-News.mp4" type="video/mp4">
             </video>
         </div>
     </div>
