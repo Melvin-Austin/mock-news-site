@@ -17,15 +17,20 @@
             font-size: 32px;
             font-weight: bold;
         }
-        .banner-ad {
-            background: yellow;
-            color: black;
+        /* Search bar */
+        #searchBarContainer {
+            background: #b71c1c;
+            padding: 10px;
             text-align: center;
-            padding: 15px;
-            font-size: 20px;
-            font-weight: bold;
-            border-bottom: 3px solid orange;
         }
+        #searchBar {
+            width: 60%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: none;
+        }
+
         .container {
             display: flex;
             padding: 20px;
@@ -46,6 +51,26 @@
             margin-bottom: 20px;
             border-radius: 6px;
         }
+
+        /* Popup ad */
+        #popupAd {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: yellow;
+            padding: 15px;
+            border: 2px solid red;
+            font-weight: bold;
+            z-index: 9999;
+        }
+        #closeAd {
+            cursor: pointer;
+            float: right;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* Sidebar ad */
         .sidebar-ad {
             background: #ffeb3b;
             padding: 15px;
@@ -60,7 +85,16 @@
 
 <header>Totally Real News Network</header>
 
-<div class="banner-ad">(insert really annoying ad here)</div>
+<!-- Search bar -->
+<div id="searchBarContainer">
+    <input id="searchBar" type="text" placeholder="Search... (try typing: remove-ads)">
+</div>
+
+<!-- Popup ad -->
+<div id="popupAd">
+    <span id="closeAd">X</span>
+    BUY THIS THING YOU DON'T NEED
+</div>
 
 <div class="container">
     <div class="main">
@@ -69,7 +103,7 @@
             <p>Sources confirm that this masterpiece was created for a school assignment and is, in fact, absolutely legendary.</p>
 
             <h3>Exclusive Video Report</h3>
-            <iframe width="560" height="315"
+            <iframe width="560" height="315" 
                 src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=G8MucafteERHlsB6"
                 title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -85,13 +119,33 @@
 
     <div class="sidebar">
         <h3>Sponsored Content</h3>
-        <div class="sidebar-ad">
+        <div class="sidebar-ad" id="sidebarAd">
             BUY THIS THING YOU DON'T NEED
-            <br><br>
-            (seriously, click it… oh wait, it's offline)
         </div>
     </div>
 </div>
+
+<script>
+    // Close popup ad
+    document.getElementById("closeAd").onclick = function() {
+        document.getElementById("popupAd").style.display = "none";
+    };
+
+    // Secret search commands
+    document.getElementById("searchBar").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            let value = this.value.toLowerCase().trim();
+
+            if (value === "remove-ads") {
+                document.getElementById("popupAd").style.display = "none";
+                document.getElementById("sidebarAd").style.display = "none";
+                alert("Ads removed.");
+            }
+
+            this.value = "";
+        }
+    });
+</script>
 
 </body>
 </html>
