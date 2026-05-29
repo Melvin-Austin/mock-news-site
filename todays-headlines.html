@@ -80,16 +80,6 @@
             text-align: center;
         }
 
-        .ad-box {
-            background: #ffeb3b;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 18px;
-            text-align: center;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-        }
-
         .news-article {
             background: white;
             padding: 20px;
@@ -109,6 +99,35 @@
 
         video { 
             border-radius: 6px; 
+        }
+
+        /* Popup ad in top-right */
+        #popupAd {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 220px;
+            background: yellow;
+            padding: 15px;
+            border: 3px solid orange;
+            font-size: 16px;
+            font-weight: bold;
+            z-index: 9999;
+            border-radius: 10px;
+            display: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        }
+
+        #popupClose {
+            position: absolute;
+            bottom: 8px;
+            right: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            background: #fff3cd;
+            border-radius: 4px;
+            padding: 2px 6px;
+            border: 1px solid #e0a800;
         }
     </style>
 </head>
@@ -132,10 +151,6 @@
 
     <div id="bigAd">BUY THIS THING YOU DON'T NEED</div>
 
-    <div class="ad-box">
-        Advertisement: Buy 1 get 0 free!
-    </div>
-
     <div class="news-article">
         <h2>Breaking: Local Student Creates the Best Fake News Site Ever</h2>
         <p>Sources confirm that this masterpiece was created for a school assignment and is, in fact, absolutely legendary.</p>
@@ -151,27 +166,10 @@
 </div>
 </div>
 
-<!-- POPUP AD RESTORED -->
-<div id="popupAd" style="
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: yellow;
-    padding: 25px;
-    border: 3px solid orange;
-    font-size: 24px;
-    font-weight: bold;
-    z-index: 9999;
-    display: none;
-    border-radius: 10px;
-">
-    SPECIAL OFFER: BUY 2 GET 0 FREE!
-    <br><br>
-    <button onclick="document.getElementById('popupAd').style.display='none'"
-        style="padding: 10px 20px; font-size: 16px; cursor: pointer;">
-        Close
-    </button>
+<!-- Popup ad in top-right -->
+<div id="popupAd">
+    Insert Really Annoying Ad Here
+    <div id="popupClose">X</div>
 </div>
 
 <script>
@@ -189,12 +187,17 @@
         }
     });
 
-    // Popup ad appears after 0.8 seconds
+    // Show popup ad after a short delay
     window.onload = function() {
         setTimeout(() => {
             document.getElementById("popupAd").style.display = "block";
         }, 800);
     };
+
+    // Close button in bottom-right of popup
+    document.getElementById("popupClose").addEventListener("click", function() {
+        document.getElementById("popupAd").style.display = "none";
+    });
 </script>
 
 </body>
