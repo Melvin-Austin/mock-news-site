@@ -51,31 +51,42 @@
         /* BIG TOP-LEFT AD (inside white content) */
         #bigAd {
             background: yellow;
-            padding: 20px;
+            padding: 25px;
             border: 3px solid orange;
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
             margin-bottom: 20px;
             text-align: center;
         }
 
-        /* TOP-RIGHT POPUP AD */
+        /* Center YouTube video */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* BIGGER TOP-RIGHT POPUP AD */
         #popupAd {
             position: fixed;
             top: 20px;
             right: 20px;
             background: yellow;
-            padding: 15px;
-            border: 2px solid red;
+            padding: 25px;
+            border: 3px solid red;
             font-weight: bold;
+            font-size: 22px;
+            width: 260px;
             z-index: 9999;
             display: none;
+            border-radius: 6px;
         }
         #closePopup {
             cursor: pointer;
             float: right;
             font-weight: bold;
             margin-left: 10px;
+            font-size: 24px;
         }
     </style>
 </head>
@@ -99,12 +110,16 @@
         <p>Sources confirm that this masterpiece was created for a school assignment and is, in fact, absolutely legendary.</p>
 
         <h3>Exclusive Video Report</h3>
-        <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=G8MucafteERHlsB6"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
+
+        <!-- Centered video -->
+        <div class="video-container">
+            <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=G8MucafteERHlsB6"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
     </div>
 
     <div class="news-article">
@@ -113,10 +128,12 @@
     </div>
 </div>
 
-<!-- TOP-RIGHT POPUP AD -->
+<!-- BIGGER TOP-RIGHT POPUP AD -->
 <div id="popupAd">
     <span id="closePopup">X</span>
-    AMAZING DEALS YOU CAN'T IGNORE
+    AMAZING DEALS YOU CAN'T IGNORE  
+    <br><br>
+    LIMITED TIME OFFER  
 </div>
 
 <script>
