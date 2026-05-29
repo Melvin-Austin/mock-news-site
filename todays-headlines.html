@@ -2,56 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Totally Real News Network</title>
+    <title>Today's Headlines</title>
     <style>
-        body { font-family: Arial; margin: 0; background: #f2f2f2; }
-        header { background: #d32f2f; color: white; padding: 20px; font-size: 32px; font-weight: bold; text-align: center; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
 
+        header {
+            background: #d32f2f;
+            color: white;
+            padding: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Centered nav bar */
         #headlineBar {
-            background: #333; color: white; padding: 10px;
-            font-size: 18px; font-weight: bold; text-align: left; padding-left: 20px;
-        }
-        #headlineBar a { color: white; text-decoration: none; margin-right: 10px; }
-        #headlineBar a:hover { text-decoration: underline; }
-
-        #searchBarContainer { background: #b71c1c; padding: 10px; text-align: center; }
-        #searchBar { width: 60%; padding: 10px; font-size: 16px; border-radius: 6px; border: none; }
-
-        .content { width: 70%; margin: auto; background: white; padding: 20px; border-radius: 6px; text-align: left; }
-        .news-article { background: white; padding: 20px; margin-bottom: 20px; border-radius: 6px; }
-
-        #bigAd {
-            background: yellow; padding: 25px; border: 3px solid orange;
-            font-size: 26px; font-weight: bold; margin-bottom: 20px; text-align: center;
+            background: #333;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
         }
 
-        .video-container { display: flex; justify-content: flex-start; align-items: center; }
-        video { border-radius: 6px; }
+        #headlineBar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        #headlineBar a:hover {
+            text-decoration: underline;
+        }
+
+        .page-container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px 40px 15px;
+        }
+
+        .news-article {
+            background: white;
+            padding: 20px;
+            margin-bottom: 18px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+        }
+
+        .news-article h2 {
+            margin-top: 0;
+        }
+
+        .video-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .ad-box {
+            background: #ffeb3b;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+        }
     </style>
 </head>
 <body>
 
-<header>Totally Real News Network</header>
+<header>Mock News Network</header>
 
 <div id="headlineBar">
-    <a href="todays-headlines.html">Todays Headlines</a> |
+    | <a href="todays-headlines.html">Todays Headlines</a> |
     <a href="civics-project.html">Civics Project</a> |
     <a href="current-weather-report.html">Current Weather Report</a> |
 </div>
 
-<div id="searchBarContainer">
-    <input id="searchBar" type="text" placeholder="Search... (try typing: remove-ads)">
-</div>
+<div class="page-container">
 
-<div class="content">
-    <div id="bigAd">BUY THIS THING YOU DON'T NEED</div>
+    <div class="ad-box">
+        Advertisement: Buy 1 get 0 free!
+    </div>
 
     <div class="news-article">
-        <h2>Breaking: Local Student Creates the Best Fake News Site Ever</h2>
-        <p>Sources confirm that this masterpiece was created for a school assignment and is, in fact, absolutely legendary.</p>
+        <h2>Breaking News</h2>
+        <p>A local student has created the most advanced mock news website ever seen in school history.</p>
 
         <h3>Exclusive Video Report</h3>
-
         <div class="video-container">
             <video autoplay loop muted playsinline width="560">
                 <source src="Breaking-News.mp4" type="video/mp4">
@@ -59,27 +101,7 @@
         </div>
     </div>
 
-    <div class="news-article">
-        <h2>Weather Update</h2>
-        <p>It will be sunny with a 100% chance of procrastination.</p>
-    </div>
 </div>
-
-<script>
-    let adsEnabled = true;
-
-    document.getElementById("searchBar").addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            let value = this.value.toLowerCase().trim();
-            if (value === "remove-ads") {
-                adsEnabled = false;
-                document.getElementById("bigAd").style.display = "none";
-                alert("Ads removed.");
-            }
-            this.value = "";
-        }
-    });
-</script>
 
 </body>
 </html>
