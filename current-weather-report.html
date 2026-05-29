@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local Weather Report</title>
+    <style>
+        body { font-family: Arial; margin: 0; background: #f2f2f2; }
+        header { background: #d32f2f; color: white; padding: 20px; font-size: 32px; font-weight: bold; text-align: center; }
 
+        #headlineBar {
+            background: #333; color: white; padding: 10px;
+            font-size: 18px; font-weight: bold; text-align: left; padding-left: 20px;
+        }
+        #headlineBar a { color: white; text-decoration: none; margin-right: 10px; }
+        #headlineBar a:hover { text-decoration: underline; }
+
+        .content { width: 70%; margin: auto; background: white; padding: 20px; border-radius: 6px; text-align: left; }
+
+        #bigAd {
+            background: yellow; padding: 25px; border: 3px solid orange;
+            font-size: 26px; font-weight: bold; margin-bottom: 20px; text-align: center;
+        }
+
+        #weatherBox {
+            background: #e3e3e3; padding: 20px; border-radius: 6px;
+            font-size: 20px; line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+<header>Local Weather Report</header>
+
+<div id="headlineBar">
+    <a href="todays-headlines.html">Todays Headlines</a> |
+    <a href="civics-project.html">Civics Project</a> |
+    <a href="current-weather-report.html">Current Weather Report</a> |
+</div>
+
+<div class="content">
+
+    <div id="bigAd">BUY THIS THING YOU DON'T NEED</div>
+
+    <h2>Local Weather Conditions</h2>
+
+    <div id="weatherBox">Loading weather...</div>
+
+</div>
+
+<script>
+function fetchWeather(lat, lon) {
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`)
+        .then(res => res.json())
+        .then(data => {
+            const w = data.current_weather;
+            document.getElementById("weatherBox").innerHTML = `
+                <strong>Temperature:</strong> ${w.temperature}°C<br>
+                <strong>Wind Speed:</strong> ${w.windspeed} km/h<br>
+                <strong>Conditions:</strong> ${w.weathercode}<br>
+                <strong>Time:</strong> ${w.time}
+            `;
+        })
+        .catch(() => {
+            document.getElementById("weatherBox").innerHTML = "Unable to load weather data.";
+        });
+}
+
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+        pos => fetchWeather(pos.coords.latitude, pos.coords.longitude),
+        () => fetchWeather(45, -66)
+    );
+} else {
+    fetchWeather(45, -66);
+}
+</script>
+
+</body>
+</html>
