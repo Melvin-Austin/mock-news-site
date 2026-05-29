@@ -38,6 +38,7 @@
             background: white;
             padding: 20px;
             border-radius: 6px;
+            text-align: left;
         }
 
         .news-article {
@@ -45,7 +46,6 @@
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 6px;
-            text-align: left;
         }
 
         /* BIG TOP-LEFT AD (inside white content) */
@@ -59,24 +59,24 @@
             text-align: center;
         }
 
-        /* Center YouTube video */
+        /* Video aligned left */
         .video-container {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
         }
 
-        /* BIGGER POPUP AD (TOP-LEFT FLOATING) */
+        /* BIGGER POPUP AD (TOP-RIGHT FLOATING) */
         #popupAd {
             position: fixed;
             top: 20px;
-            left: 20px;
+            right: 20px;
             background: yellow;
-            padding: 25px;
-            border: 3px solid red;
+            padding: 35px;
+            border: 4px solid red;
             font-weight: bold;
-            font-size: 22px;
-            width: 260px;
+            font-size: 24px;
+            width: 320px;
             z-index: 9999;
             display: none;
             border-radius: 6px;
@@ -86,7 +86,7 @@
             float: right;
             font-weight: bold;
             margin-left: 10px;
-            font-size: 24px;
+            font-size: 28px;
         }
     </style>
 </head>
@@ -111,13 +111,12 @@
 
         <h3>Exclusive Video Report</h3>
 
-        <!-- Centered video -->
+        <!-- Left-aligned autoplay looping video -->
         <div class="video-container">
-            <iframe width="560" height="315" 
-                src="https://www.youtube.com/embed/r5BRLtWwVeU"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
+            <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/r5BRLtWwVeU?autoplay=1&loop=1&controls=0&showinfo=0&modestbranding=1&rel=0&mute=1&playlist=r5BRLtWwVeU"
+                frameborder="0"
+                allow="autoplay; encrypted-media">
             </iframe>
         </div>
     </div>
@@ -128,7 +127,7 @@
     </div>
 </div>
 
-<!-- POPUP AD (TOP-LEFT FLOATING) -->
+<!-- POPUP AD (TOP-RIGHT FLOATING, BIGGER) -->
 <div id="popupAd">
     <span id="closePopup">X</span>
     AMAZING DEALS YOU CAN'T IGNORE  
