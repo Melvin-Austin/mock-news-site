@@ -17,6 +17,7 @@
             font-size: 32px;
             font-weight: bold;
         }
+
         /* Search bar */
         #searchBarContainer {
             background: #b71c1c;
@@ -52,7 +53,7 @@
             border-radius: 6px;
         }
 
-        /* Popup ad */
+        /* Popup ad (top-left) */
         #popupAd {
             position: fixed;
             top: 20px;
@@ -70,14 +71,21 @@
             margin-left: 10px;
         }
 
-        /* Sidebar ad */
-        .sidebar-ad {
-            background: #ffeb3b;
-            padding: 15px;
-            margin-top: 20px;
-            text-align: center;
+        /* Sidebar banner-style ad */
+        #sidebarBanner {
+            background: yellow;
+            padding: 10px;
+            border: 2px solid red;
             font-weight: bold;
-            border: 2px dashed red;
+            margin-top: 20px;
+            position: relative;
+        }
+        #closeSidebarAd {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            cursor: pointer;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -119,7 +127,10 @@
 
     <div class="sidebar">
         <h3>Sponsored Content</h3>
-        <div class="sidebar-ad" id="sidebarAd">
+
+        <!-- Sidebar banner-style ad -->
+        <div id="sidebarBanner">
+            <span id="closeSidebarAd">X</span>
             BUY THIS THING YOU DON'T NEED
         </div>
     </div>
@@ -131,6 +142,11 @@
         document.getElementById("popupAd").style.display = "none";
     };
 
+    // Close sidebar banner ad
+    document.getElementById("closeSidebarAd").onclick = function() {
+        document.getElementById("sidebarBanner").style.display = "none";
+    };
+
     // Secret search commands
     document.getElementById("searchBar").addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
@@ -138,7 +154,7 @@
 
             if (value === "remove-ads") {
                 document.getElementById("popupAd").style.display = "none";
-                document.getElementById("sidebarAd").style.display = "none";
+                document.getElementById("sidebarBanner").style.display = "none";
                 alert("Ads removed.");
             }
 
