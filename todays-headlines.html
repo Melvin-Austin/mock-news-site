@@ -60,10 +60,11 @@
             padding: 0 15px 40px 15px;
         }
 
+        /* Slight gray background for the middle content box */
         .content { 
             width: 70%; 
             margin: auto; 
-            background: white; 
+            background: #f7f7f7; 
             padding: 20px; 
             border-radius: 6px; 
             text-align: left; 
@@ -150,6 +151,29 @@
 </div>
 </div>
 
+<!-- POPUP AD RESTORED -->
+<div id="popupAd" style="
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: yellow;
+    padding: 25px;
+    border: 3px solid orange;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 9999;
+    display: none;
+    border-radius: 10px;
+">
+    SPECIAL OFFER: BUY 2 GET 0 FREE!
+    <br><br>
+    <button onclick="document.getElementById('popupAd').style.display='none'"
+        style="padding: 10px 20px; font-size: 16px; cursor: pointer;">
+        Close
+    </button>
+</div>
+
 <script>
     let adsEnabled = true;
 
@@ -164,6 +188,13 @@
             this.value = "";
         }
     });
+
+    // Popup ad appears after 0.8 seconds
+    window.onload = function() {
+        setTimeout(() => {
+            document.getElementById("popupAd").style.display = "block";
+        }, 800);
+    };
 </script>
 
 </body>
