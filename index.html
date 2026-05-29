@@ -28,6 +28,14 @@
             white-space: nowrap;
             overflow-x: auto;
         }
+        #headlineBar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        #headlineBar a:hover {
+            text-decoration: underline;
+        }
 
         /* Search bar */
         #searchBarContainer {
@@ -110,9 +118,9 @@
 
 <header>Totally Real News Network</header>
 
-<!-- Headline bar -->
+<!-- Headline bar with ONE link -->
 <div id="headlineBar">
-    Todays Headline | Other Topic | Other Topic | Other Topic | Other Topic | Other Topic | Other Topic | Other Topic
+    <a href="https://melvin-austin.github.io/mock-news-site/Todays-Headline">Todays Headline</a>
 </div>
 
 <!-- Search bar -->
@@ -135,7 +143,7 @@
         <!-- Left-aligned autoplay looping MP4 video -->
         <div class="video-container">
             <video autoplay loop muted playsinline width="560">
-                <source src="Breaking News.mp4" type="video/mp4">
+                <source src="Breaking-News.mp4" type="video/mp4">
             </video>
         </div>
     </div>
