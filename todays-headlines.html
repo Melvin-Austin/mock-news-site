@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Today's Headlines</title>
+    <title>Totally Real News Network</title>
+
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
+        body { 
+            font-family: Arial; 
+            margin: 0; 
+            background: #f2f2f2; 
         }
 
-        header {
-            background: #d32f2f;
-            color: white;
-            padding: 20px;
-            font-size: 32px;
-            font-weight: bold;
-            text-align: center;
+        header { 
+            background: #d32f2f; 
+            color: white; 
+            padding: 20px; 
+            font-size: 32px; 
+            font-weight: bold; 
+            text-align: center; 
         }
 
         /* Centered nav bar */
@@ -39,10 +40,53 @@
             text-decoration: underline;
         }
 
+        #searchBarContainer { 
+            background: #b71c1c; 
+            padding: 10px; 
+            text-align: center; 
+        }
+
+        #searchBar { 
+            width: 60%; 
+            padding: 10px; 
+            font-size: 16px; 
+            border-radius: 6px; 
+            border: none; 
+        }
+
         .page-container {
             max-width: 900px;
             margin: 20px auto;
             padding: 0 15px 40px 15px;
+        }
+
+        .content { 
+            width: 70%; 
+            margin: auto; 
+            background: white; 
+            padding: 20px; 
+            border-radius: 6px; 
+            text-align: left; 
+        }
+
+        #bigAd {
+            background: yellow; 
+            padding: 25px; 
+            border: 3px solid orange;
+            font-size: 26px; 
+            font-weight: bold; 
+            margin-bottom: 20px; 
+            text-align: center;
+        }
+
+        .ad-box {
+            background: #ffeb3b;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
         }
 
         .news-article {
@@ -62,20 +106,15 @@
             margin-top: 15px;
         }
 
-        .ad-box {
-            background: #ffeb3b;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 18px;
-            text-align: center;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+        video { 
+            border-radius: 6px; 
         }
     </style>
 </head>
+
 <body>
 
-<header>Mock News Network</header>
+<header>Totally Real News Network</header>
 
 <div id="headlineBar">
     | <a href="todays-headlines.html">Todays Headlines</a> |
@@ -83,15 +122,22 @@
     <a href="current-weather-report.html">Current Weather Report</a> |
 </div>
 
+<div id="searchBarContainer">
+    <input id="searchBar" type="text" placeholder="Search... (try typing: remove-ads)">
+</div>
+
 <div class="page-container">
+<div class="content">
+
+    <div id="bigAd">BUY THIS THING YOU DON'T NEED</div>
 
     <div class="ad-box">
         Advertisement: Buy 1 get 0 free!
     </div>
 
     <div class="news-article">
-        <h2>Breaking News</h2>
-        <p>A local student has created the most advanced mock news website ever seen in school history.</p>
+        <h2>Breaking: Local Student Creates the Best Fake News Site Ever</h2>
+        <p>Sources confirm that this masterpiece was created for a school assignment and is, in fact, absolutely legendary.</p>
 
         <h3>Exclusive Video Report</h3>
         <div class="video-container">
@@ -102,6 +148,23 @@
     </div>
 
 </div>
+</div>
+
+<script>
+    let adsEnabled = true;
+
+    document.getElementById("searchBar").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            let value = this.value.toLowerCase().trim();
+            if (value === "remove-ads") {
+                adsEnabled = false;
+                document.getElementById("bigAd").style.display = "none";
+                alert("Ads removed.");
+            }
+            this.value = "";
+        }
+    });
+</script>
 
 </body>
 </html>
