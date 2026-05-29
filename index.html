@@ -53,39 +53,33 @@
             border-radius: 6px;
         }
 
-        /* Popup ad (top-left) */
+        /* TOP-LEFT banner ad (no X) */
+        #bannerAd {
+            background: yellow;
+            padding: 15px;
+            border-bottom: 3px solid orange;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* TOP-RIGHT popup ad */
         #popupAd {
             position: fixed;
             top: 20px;
-            left: 20px;
+            right: 20px;
             background: yellow;
             padding: 15px;
             border: 2px solid red;
             font-weight: bold;
             z-index: 9999;
+            display: none;
         }
-        #closeAd {
+        #closePopup {
             cursor: pointer;
             float: right;
             font-weight: bold;
             margin-left: 10px;
-        }
-
-        /* Sidebar banner-style ad */
-        #sidebarBanner {
-            background: yellow;
-            padding: 10px;
-            border: 2px solid red;
-            font-weight: bold;
-            margin-top: 20px;
-            position: relative;
-        }
-        #closeSidebarAd {
-            position: absolute;
-            right: 5px;
-            top: 5px;
-            cursor: pointer;
-            font-weight: bold;
         }
     </style>
 </head>
@@ -93,15 +87,20 @@
 
 <header>Totally Real News Network</header>
 
+<!-- TOP-LEFT banner ad -->
+<div id="bannerAd">
+    BUY THIS THING YOU DON'T NEED
+</div>
+
 <!-- Search bar -->
 <div id="searchBarContainer">
     <input id="searchBar" type="text" placeholder="Search... (try typing: remove-ads)">
 </div>
 
-<!-- Popup ad -->
+<!-- TOP-RIGHT popup ad -->
 <div id="popupAd">
-    <span id="closeAd">X</span>
-    BUY THIS THING YOU DON'T NEED
+    <span id="closePopup">X</span>
+    AMAZING DEALS YOU CAN'T IGNORE
 </div>
 
 <div class="container">
@@ -127,24 +126,29 @@
 
     <div class="sidebar">
         <h3>Sponsored Content</h3>
-
-        <!-- Sidebar banner-style ad -->
-        <div id="sidebarBanner">
-            <span id="closeSidebarAd">X</span>
-            BUY THIS THING YOU DON'T NEED
-        </div>
+        <p>Nothing suspicious here at all.</p>
     </div>
 </div>
 
 <script>
-    // Close popup ad
-    document.getElementById("closeAd").onclick = function() {
-        document.getElementById("popupAd").style.display = "none";
-    };
+    let adsEnabled = true;
 
-    // Close sidebar banner ad
-    document.getElementById("closeSidebarAd").onclick = function() {
-        document.getElementById("sidebarBanner").style.display = "none";
+    // Popup ad logic
+    function showPopup() {
+        if (!adsEnabled) return;
+        document.getElementById("popupAd").style.display = "block";
+
+        // Schedule next popup in 50–60 seconds
+        let delay = Math.floor(Math.random() * 10000) + 50000;
+        setTimeout(showPopup, delay);
+    }
+
+    // Start first popup after 5 seconds
+    setTimeout(showPopup, 5000);
+
+    // Close popup ad
+    document.getElementById("closePopup").onclick = function() {
+        document.getElementById("popupAd").style.display = "none";
     };
 
     // Secret search commands
@@ -153,8 +157,9 @@
             let value = this.value.toLowerCase().trim();
 
             if (value === "remove-ads") {
+                adsEnabled = false;
+                document.getElementById("bannerAd").style.display = "none";
                 document.getElementById("popupAd").style.display = "none";
-                document.getElementById("sidebarBanner").style.display = "none";
                 alert("Ads removed.");
             }
 
