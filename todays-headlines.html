@@ -1,135 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Totally Real News Network</title>
+<meta charset="UTF-8">
+<title>Totally Real News Network</title>
 
-    <style>
-        body { 
-            font-family: Arial; 
-            margin: 0; 
-            background: #f2f2f2; 
-        }
+<style>
+:root { --main-red:#8b0000; }
 
-        header { 
-            background: #d32f2f; 
-            color: white; 
-            padding: 20px; 
-            font-size: 32px; 
-            font-weight: bold; 
-            text-align: center; 
-        }
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f2f2f2;
+}
 
-        /* Centered nav bar */
-        #headlineBar {
-            background: #333;
-            color: white;
-            padding: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            text-align: center;
-        }
+header {
+    background: var(--main-red);
+    color: white;
+    padding: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
 
-        #headlineBar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
+/* Centered nav bar */
+#headlineBar {
+    background: #000;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
 
-        #headlineBar a:hover {
-            text-decoration: underline;
-        }
+#headlineBar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
 
-        #searchBarContainer { 
-            background: #b71c1c; 
-            padding: 10px; 
-            text-align: center; 
-        }
+#headlineBar a:hover {
+    text-decoration: underline;
+}
 
-        #searchBar { 
-            width: 60%; 
-            padding: 10px; 
-            font-size: 16px; 
-            border-radius: 6px; 
-            border: none; 
-        }
+/* Search bar */
+#searchBarContainer {
+    background: var(--main-red);
+    padding: 10px;
+    text-align: center;
+}
 
-        .page-container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 0 15px 40px 15px;
-        }
+#searchBar {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 0;
+}
 
-        /* Slight gray background for the middle content box */
-        .content { 
-            width: 70%; 
-            margin: auto; 
-            background: #f7f7f7; 
-            padding: 20px; 
-            border-radius: 6px; 
-            text-align: left; 
-        }
+/* Page layout */
+.page-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 15px 40px 15px;
+}
 
-        #bigAd {
-            background: yellow; 
-            padding: 25px; 
-            border: 3px solid orange;
-            font-size: 26px; 
-            font-weight: bold; 
-            margin-bottom: 20px; 
-            text-align: center;
-        }
+.content {
+    width: 70%;
+    margin: auto;
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 6px;
+}
 
-        .news-article {
-            background: white;
-            padding: 20px;
-            margin-bottom: 18px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-        }
+/* Big ad */
+#bigAd {
+    background: var(--main-red);
+    color: white;
+    padding: 25px;
+    border: 3px solid #000;
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 0;
+}
 
-        .news-article h2 {
-            margin-top: 0;
-        }
+/* Article box */
+.news-article {
+    background: white;
+    padding: 20px;
+    margin-bottom: 18px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
 
-        .video-container {
-            text-align: center;
-            margin-top: 15px;
-        }
+.news-article h2 {
+    margin-top: 0;
+}
 
-        video { 
-            border-radius: 6px; 
-        }
+.video-container {
+    text-align: center;
+    margin-top: 15px;
+}
 
-        /* Popup ad in top-right */
-        #popupAd {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 220px;
-            background: yellow;
-            padding: 15px;
-            border: 3px solid orange;
-            font-size: 16px;
-            font-weight: bold;
-            z-index: 9999;
-            border-radius: 10px;
-            display: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-        }
+video {
+    border-radius: 6px;
+}
 
-        #popupClose {
-            position: absolute;
-            bottom: 8px;
-            right: 10px;
-            font-size: 14px;
-            cursor: pointer;
-            background: #fff3cd;
-            border-radius: 4px;
-            padding: 2px 6px;
-            border: 1px solid #e0a800;
-        }
-    </style>
+/* Popup ad */
+#popupAd {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 220px;
+    background: var(--main-red);
+    color: white;
+    padding: 15px;
+    border: 3px solid #000;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 9999;
+    border-radius: 0;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+#popupClose {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    background: white;
+    color: black;
+    border-radius: 0;
+    padding: 2px 6px;
+    border: 1px solid #000;
+}
+</style>
 </head>
 
 <body>
@@ -137,9 +145,9 @@
 <header>Totally Real News Network</header>
 
 <div id="headlineBar">
-    | <a href="todays-headlines.html">Todays Headlines</a> |
-    <a href="civics-project.html">Civics Project</a> |
-    <a href="current-weather-report.html">Current Weather Report</a> |
+    <a href="todays-headlines.html">Todays Headlines</a>
+    <a href="civics-project.html">Civics Project</a>
+    <a href="current-weather-report.html">Current Weather Report</a>
 </div>
 
 <div id="searchBarContainer">
@@ -166,38 +174,36 @@
 </div>
 </div>
 
-<!-- Popup ad in top-right -->
+<!-- Popup ad -->
 <div id="popupAd">
     Insert Really Annoying Ad Here
     <div id="popupClose">X</div>
 </div>
 
 <script>
-    let adsEnabled = true;
+let adsEnabled = true;
 
-    document.getElementById("searchBar").addEventListener("keydown", function(event) {
-        if (event.key === "Enter") {
-            let value = this.value.toLowerCase().trim();
-            if (value === "remove-ads") {
-                adsEnabled = false;
-                document.getElementById("bigAd").style.display = "none";
-                alert("Ads removed.");
-            }
-            this.value = "";
+document.getElementById("searchBar").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        let value = this.value.toLowerCase().trim();
+        if (value === "remove-ads") {
+            adsEnabled = false;
+            document.getElementById("bigAd").style.display = "none";
+            alert("Ads removed.");
         }
-    });
+        this.value = "";
+    }
+});
 
-    // Show popup ad after a short delay
-    window.onload = function() {
-        setTimeout(() => {
-            document.getElementById("popupAd").style.display = "block";
-        }, 800);
-    };
+window.onload = function() {
+    setTimeout(() => {
+        document.getElementById("popupAd").style.display = "block";
+    }, 800);
+};
 
-    // Close button in bottom-right of popup
-    document.getElementById("popupClose").addEventListener("click", function() {
-        document.getElementById("popupAd").style.display = "none";
-    });
+document.getElementById("popupClose").addEventListener("click", function() {
+    document.getElementById("popupAd").style.display = "none";
+});
 </script>
 
 </body>
