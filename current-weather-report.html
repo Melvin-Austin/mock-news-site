@@ -1,500 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Local Weather Report</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            color: #222;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
+<meta charset="UTF-8">
+<title>Current Weather Report</title>
 
-        /* Full-page animated background */
-        .weather-bg {
-            position: fixed;
-            inset: 0;
-            z-index: -2;
-            background: linear-gradient(180deg, #4a90e2, #87cefa);
-            overflow: hidden;
-        }
+<style>
+:root { --main-red:#8b0000; }
 
-        /* Light blur overlay */
-        .weather-bg-blur {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            backdrop-filter: blur(4px);
-        }
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f2f2f2;
+}
 
-        /* Simple animations (rain/snow/clouds/sun will be simulated with CSS) */
-        .weather-bg.sunny {
-            background: radial-gradient(circle at top, #ffe066, #4a90e2);
-        }
+header {
+    background: var(--main-red);
+    color: white;
+    padding: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
 
-        .weather-bg.cloudy {
-            background: linear-gradient(180deg, #9ea7b8, #cfd4e3);
-        }
+/* Centered nav bar */
+#headlineBar {
+    background: #000;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
 
-        .weather-bg.rainy {
-            background: linear-gradient(180deg, #4a6fa5, #2c3e50);
-        }
+#headlineBar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+}
 
-        .weather-bg.snowy {
-            background: linear-gradient(180deg, #dfe9f3, #9fb6d3);
-        }
+#headlineBar a:hover {
+    text-decoration: underline;
+}
 
-        .weather-bg.foggy {
-            background: linear-gradient(180deg, #cfd4da, #e3e6eb);
-        }
+/* Search bar */
+#searchBarContainer {
+    background: var(--main-red);
+    padding: 10px;
+    text-align: center;
+}
 
-        header {
-            background: #d32f2f;
-            color: white;
-            padding: 20px;
-            font-size: 32px;
-            font-weight: bold;
-            text-align: center;
-        }
+#searchBar {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 0;
+}
 
-        /* Centered nav bar */
-        #headlineBar {
-            background: #333;
-            color: white;
-            padding: 10px;
-            font-size: 18px;
-            font-weight: bold;
-            text-align: center;
-        }
+/* Main content box */
+.content {
+    width: 70%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
 
-        #headlineBar a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
+/* Weather box */
+.weather-box {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
 
-        #headlineBar a:hover {
-            text-decoration: underline;
-        }
+.weather-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--main-red);
+    margin-bottom: 10px;
+}
 
-        .page-container {
-            max-width: 900px;
-            margin: 20px auto 40px auto;
-            padding: 0 15px 40px 15px;
-        }
-
-        .location-row {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .location-display {
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .location-display span {
-            font-weight: bold;
-        }
-
-        .edit-location {
-            cursor: pointer;
-            margin-left: 6px;
-            font-size: 16px;
-        }
-
-        .location-input-row {
-            margin-top: 5px;
-        }
-
-        #locationInput {
-            padding: 8px 10px;
-            width: 260px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-            color: #333;
-        }
-
-        #locationInput::placeholder {
-            color: #999;
-        }
-
-        #setLocationBtn {
-            padding: 8px 12px;
-            margin-left: 6px;
-            border-radius: 6px;
-            border: none;
-            background: #d32f2f;
-            color: white;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        #setLocationBtn:hover {
-            background: #b71c1c;
-        }
-
-        .widget {
-            background: rgba(255, 255, 255, 0.92);
-            border-radius: 10px;
-            padding: 18px 20px;
-            margin-bottom: 18px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-        }
-
-        .widget h2 {
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .current-main {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .current-left {
-            font-size: 40px;
-        }
-
-        .current-right {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .current-right strong {
-            display: inline-block;
-            width: 120px;
-        }
-
-        .section-title {
-            font-size: 20px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .hourly-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-            gap: 10px;
-            font-size: 14px;
-        }
-
-        .hour-card, .day-card {
-            background: rgba(255,255,255,0.95);
-            border-radius: 8px;
-            padding: 8px;
-            text-align: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-        }
-
-        .hour-card .icon, .day-card .icon {
-            font-size: 22px;
-            margin-bottom: 4px;
-        }
-
-        .day-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-            gap: 10px;
-            font-size: 14px;
-        }
-
-        .small-label {
-            font-size: 12px;
-            color: #666;
-        }
-
-        @media (max-width: 600px) {
-            .current-main {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .current-left {
-                margin-bottom: 10px;
-            }
-            .current-right strong {
-                width: 110px;
-            }
-        }
-    </style>
+.weather-detail {
+    font-size: 18px;
+    margin: 6px 0;
+}
+</style>
 </head>
+
 <body>
-    <div class="weather-bg sunny" id="weatherBackground"></div>
-    <div class="weather-bg-blur"></div>
 
-    <header>Local Weather Report</header>
+<header>Current Weather Report</header>
 
-    <div id="headlineBar">
-        | <a href="todays-headlines.html">Todays Headlines</a> |
-        <a href="civics-project.html">Civics Project</a> |
-        <a href="current-weather-report.html">Current Weather Report</a> |
+<div id="headlineBar">
+    <a href="todays-headlines.html">Todays Headlines</a>
+    <a href="civics-project.html">Civics Project</a>
+    <a href="current-weather-report.html">Current Weather Report</a>
+</div>
+
+<div id="searchBarContainer">
+    <input id="searchBar" type="text" placeholder="Search the site...">
+</div>
+
+<div class="content">
+
+    <h2>Local Weather Update</h2>
+    <p>Here is your totally real, definitely accurate weather forecast.</p>
+
+    <div class="weather-box">
+        <div class="weather-title">Today's Weather</div>
+        <div class="weather-detail"><strong>Temperature:</strong> 14°C</div>
+        <div class="weather-detail"><strong>Condition:</strong> Mostly Cloudy</div>
+        <div class="weather-detail"><strong>Wind:</strong> 12 km/h NW</div>
+        <div class="weather-detail"><strong>Humidity:</strong> 68%</div>
     </div>
 
-    <div class="page-container">
-        <div class="location-row">
-            <div class="location-display">
-                Your Location:
-                <span id="locationLabel">Detecting...</span>
-                <span class="edit-location" id="editLocationBtn">✎</span>
-            </div>
-            <div class="location-input-row" id="locationInputRow" style="display:none;">
-                <input
-                    id="locationInput"
-                    type="text"
-                    placeholder="City, Province (ex: Stanley, NB)"
-                >
-                <button id="setLocationBtn">Set</button>
-            </div>
-        </div>
-
-        <div class="widget" id="currentWidget">
-            <div class="section-title">Current Conditions</div>
-            <div class="current-main">
-                <div class="current-left" id="currentIcon">⛅</div>
-                <div class="current-right" id="currentDetails">
-                    Loading current weather...
-                </div>
-            </div>
-        </div>
-
-        <div class="widget">
-            <div class="section-title">Next 12 Hours</div>
-            <div class="hourly-grid" id="hourlyGrid">
-                Loading hourly forecast...
-            </div>
-        </div>
-
-        <div class="widget">
-            <div class="section-title">7-Day Forecast</div>
-            <div class="day-grid" id="dailyGrid">
-                Loading 7-day forecast...
-            </div>
-        </div>
+    <div class="weather-box">
+        <div class="weather-title">Tomorrow's Forecast</div>
+        <div class="weather-detail"><strong>High:</strong> 18°C</div>
+        <div class="weather-detail"><strong>Low:</strong> 9°C</div>
+        <div class="weather-detail"><strong>Condition:</strong> Light Rain</div>
     </div>
 
-    <script>
-        const weatherDescriptions = {
-            0: "Clear sky",
-            1: "Mainly clear",
-            2: "Partly cloudy",
-            3: "Overcast",
-            45: "Fog",
-            48: "Depositing rime fog",
-            51: "Light drizzle",
-            53: "Moderate drizzle",
-            55: "Dense drizzle",
-            61: "Light rain",
-            63: "Moderate rain",
-            65: "Heavy rain",
-            71: "Light snow",
-            73: "Moderate snow",
-            75: "Heavy snow",
-            95: "Thunderstorm",
-            96: "Thunderstorm with hail"
-        };
+</div>
 
-        function getEmojiForCode(code) {
-            if (code === 0) return "☀️";
-            if (code === 1) return "🌤️";
-            if (code === 2) return "⛅";
-            if (code === 3) return "☁️";
-            if (code === 45 || code === 48) return "🌫️";
-            if (code === 51 || code === 53 || code === 55) return "🌦️";
-            if (code === 61 || code === 63 || code === 65) return "🌧️";
-            if (code === 71 || code === 73 || code === 75) return "❄️";
-            if (code === 95 || code === 96) return "⛈️";
-            return "🌡️";
-        }
-
-        function setBackgroundForCode(code) {
-            const bg = document.getElementById("weatherBackground");
-            bg.className = "weather-bg"; // reset
-
-            if (code === 0 || code === 1) {
-                bg.classList.add("sunny");
-            } else if (code === 2 || code === 3) {
-                bg.classList.add("cloudy");
-            } else if (code === 61 || code === 63 || code === 65 || code === 51 || code === 53 || code === 55) {
-                bg.classList.add("rainy");
-            } else if (code === 71 || code === 73 || code === 75) {
-                bg.classList.add("snowy");
-            } else if (code === 45 || code === 48) {
-                bg.classList.add("foggy");
-            } else {
-                bg.classList.add("cloudy");
-            }
-        }
-
-        function fetchWeatherByCoords(lat, lon, labelText) {
-            const currentDetails = document.getElementById("currentDetails");
-            const currentIcon = document.getElementById("currentIcon");
-            const hourlyGrid = document.getElementById("hourlyGrid");
-            const dailyGrid = document.getElementById("dailyGrid");
-            const locationLabel = document.getElementById("locationLabel");
-
-            if (labelText) {
-                locationLabel.textContent = labelText;
-            }
-
-            const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true&hourly=temperature_2m,relativehumidity_2m,pressure_msl,visibility,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto`;
-
-            fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    const w = data.current_weather;
-                    const hourly = data.hourly;
-                    const daily = data.daily;
-
-                    const humidity = hourly.relativehumidity_2m[0];
-                    const pressure = hourly.pressure_msl[0];
-                    const visibility = (hourly.visibility[0] / 1000).toFixed(1);
-
-                    const desc = weatherDescriptions[w.weathercode] || "Unknown";
-                    const emoji = getEmojiForCode(w.weathercode);
-
-                    currentIcon.textContent = emoji;
-                    currentDetails.innerHTML = `
-                        <strong>Temperature:</strong> ${w.temperature}°C<br>
-                        <strong>Feels Like:</strong> ${w.temperature}°C<br>
-                        <strong>Wind Speed:</strong> ${w.windspeed} km/h<br>
-                        <strong>Wind Direction:</strong> ${w.winddirection}°<br>
-                        <strong>Conditions:</strong> ${desc}<br>
-                        <strong>Humidity:</strong> ${humidity}%<br>
-                        <strong>Pressure:</strong> ${pressure} hPa<br>
-                        <strong>Visibility:</strong> ${visibility} km<br>
-                        <strong>Time:</strong> ${w.time}
-                    `;
-
-                    setBackgroundForCode(w.weathercode);
-
-                    // Hourly forecast (next 12 hours)
-                    hourlyGrid.innerHTML = "";
-                    const nowIndex = hourly.time.indexOf(w.time);
-                    const startIndex = nowIndex >= 0 ? nowIndex : 0;
-                    const endIndex = Math.min(startIndex + 12, hourly.time.length);
-
-                    for (let i = startIndex; i < endIndex; i++) {
-                        const timeStr = hourly.time[i];
-                        const temp = hourly.temperature_2m[i];
-                        const code = hourly.weathercode[i];
-                        const icon = getEmojiForCode(code);
-
-                        const dateObj = new Date(timeStr);
-                        const hourLabel = dateObj.toLocaleTimeString([], { hour: "numeric" });
-
-                        const card = document.createElement("div");
-                        card.className = "hour-card";
-                        card.innerHTML = `
-                            <div class="icon">${icon}</div>
-                            <div>${hourLabel}</div>
-                            <div class="small-label">${temp}°C</div>
-                        `;
-                        hourlyGrid.appendChild(card);
-                    }
-
-                    // 7-day forecast
-                    dailyGrid.innerHTML = "";
-                    for (let i = 0; i < daily.time.length; i++) {
-                        const dateStr = daily.time[i];
-                        const maxT = daily.temperature_2m_max[i];
-                        const minT = daily.temperature_2m_min[i];
-                        const code = daily.weathercode[i];
-                        const icon = getEmojiForCode(code);
-
-                        const dateObj = new Date(dateStr);
-                        const dayLabel = dateObj.toLocaleDateString([], { weekday: "short" });
-
-                        const card = document.createElement("div");
-                        card.className = "day-card";
-                        card.innerHTML = `
-                            <div>${dayLabel}</div>
-                            <div class="icon">${icon}</div>
-                            <div class="small-label">High: ${maxT}°C</div>
-                            <div class="small-label">Low: ${minT}°C</div>
-                        `;
-                        dailyGrid.appendChild(card);
-                    }
-                })
-                .catch(() => {
-                    currentDetails.textContent = "Unable to load weather data.";
-                    hourlyGrid.textContent = "Unable to load hourly forecast.";
-                    dailyGrid.textContent = "Unable to load 7-day forecast.";
-                });
-        }
-
-        function geocodeLocation(query) {
-            const url = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=1&language=en&format=json`;
-            return fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    if (!data.results || data.results.length === 0) {
-                        throw new Error("Location not found");
-                    }
-                    const r = data.results[0];
-                    const label = `${r.name}, ${r.admin1 || r.country}`;
-                    return { lat: r.latitude, lon: r.longitude, label };
-                });
-        }
-
-        // Editable location UI
-        const editBtn = document.getElementById("editLocationBtn");
-        const locationInputRow = document.getElementById("locationInputRow");
-        const locationInput = document.getElementById("locationInput");
-        const setLocationBtn = document.getElementById("setLocationBtn");
-
-        editBtn.addEventListener("click", () => {
-            locationInputRow.style.display = "block";
-            locationInput.focus();
-        });
-
-        setLocationBtn.addEventListener("click", () => {
-            const value = locationInput.value.trim();
-            if (!value) return;
-            geocodeLocation(value)
-                .then(({ lat, lon, label }) => {
-                    fetchWeatherByCoords(lat, lon, label);
-                })
-                .catch(() => {
-                    alert("Could not find that location. Try City, Province (ex: Stanley, NB).");
-                });
-        });
-
-        locationInput.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") {
-                setLocationBtn.click();
-            }
-        });
-
-        // Initial load: try browser geolocation, fallback to Stanley, NB
-        function initWeather() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    pos => {
-                        fetchWeatherByCoords(pos.coords.latitude, pos.coords.longitude, "Your current location");
-                    },
-                    () => {
-                        geocodeLocation("Stanley, NB")
-                            .then(({ lat, lon, label }) => fetchWeatherByCoords(lat, lon, label))
-                            .catch(() => fetchWeatherByCoords(45, -66, "Default Location"));
-                    }
-                );
-            } else {
-                geocodeLocation("Stanley, NB")
-                    .then(({ lat, lon, label }) => fetchWeatherByCoords(lat, lon, label))
-                    .catch(() => fetchWeatherByCoords(45, -66, "Default Location"));
-            }
-        }
-
-        initWeather();
-    </script>
 </body>
 </html>
