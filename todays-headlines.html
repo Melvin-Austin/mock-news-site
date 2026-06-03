@@ -7,8 +7,8 @@
 <style>
 :root {
     --main-red:#8b0000;
-    --gold:#d4af37;
-    --content-bg:#e8e8e8;
+    --gold:#e6c34a;
+    --content-bg:#d9d9d9;
 }
 
 body {
@@ -78,7 +78,7 @@ header {
 }
 
 /* Big ad (gold) */
-#bigAd {
+.bigAd {
     background: var(--gold);
     padding: 25px;
     border: 3px solid #000;
@@ -161,7 +161,7 @@ video {
 <div class="page-container">
 <div class="content">
 
-    <div id="bigAd">BUY THIS THING YOU DON'T NEED</div>
+    <div class="bigAd">BUY THIS THING YOU DON'T NEED</div>
 
     <div class="news-article">
         <h2>Breaking: Local Student Creates the Best Fake News Site Ever</h2>
@@ -192,7 +192,7 @@ document.getElementById("searchBar").addEventListener("keydown", function(event)
         let value = this.value.toLowerCase().trim();
         if (value === "remove-ads") {
             adsEnabled = false;
-            document.getElementById("bigAd").style.display = "none";
+            document.querySelector(".bigAd").style.display = "none";
             alert("Ads removed.");
         }
         this.value = "";
