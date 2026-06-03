@@ -143,6 +143,8 @@ header {
     <div class="weather-box" id="weather-output" style="display:none;">
         <div class="weather-title">Weather</div>
         <div class="weather-detail" id="w-temp"></div>
+        <div class="weather-detail" id="w-high"></div>
+        <div class="weather-detail" id="w-low"></div>
         <div class="weather-detail" id="w-cond"></div>
         <div class="weather-detail" id="w-wind"></div>
     </div>
@@ -168,7 +170,10 @@ manualInput.addEventListener("blur", () => {
 // Fake weather generator
 function showWeather(locationName) {
     document.getElementById("weather-output").style.display = "block";
+
     document.getElementById("w-temp").textContent = "Temperature: 14°C";
+    document.getElementById("w-high").textContent = "High: 17°C";
+    document.getElementById("w-low").textContent = "Low: 8°C";
     document.getElementById("w-cond").textContent = "Condition: Mostly Cloudy";
     document.getElementById("w-wind").textContent = "Wind: 12 km/h NW";
 
