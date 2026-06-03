@@ -5,7 +5,11 @@
 <title>Totally Real News Network</title>
 
 <style>
-:root { --main-red:#8b0000; }
+:root {
+    --main-red:#8b0000;
+    --gold:#d4af37;
+    --content-bg:#e8e8e8;
+}
 
 body {
     font-family: Arial;
@@ -64,18 +68,18 @@ header {
     padding: 0 15px 40px 15px;
 }
 
+/* Slightly darker content box */
 .content {
     width: 70%;
     margin: auto;
-    background: #f7f7f7;
+    background: var(--content-bg);
     padding: 20px;
     border-radius: 6px;
 }
 
-/* Big ad */
+/* Big ad (gold) */
 #bigAd {
-    background: var(--main-red);
-    color: white;
+    background: var(--gold);
     padding: 25px;
     border: 3px solid #000;
     font-size: 26px;
@@ -107,14 +111,14 @@ video {
     border-radius: 6px;
 }
 
-/* Popup ad */
+/* Popup ad (gold) */
 #popupAd {
     position: fixed;
     top: 20px;
     right: 20px;
     width: 220px;
-    background: var(--main-red);
-    color: white;
+    background: var(--gold);
+    color: black;
     padding: 15px;
     border: 3px solid #000;
     font-size: 16px;
