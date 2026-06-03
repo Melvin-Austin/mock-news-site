@@ -87,6 +87,24 @@ header {
     font-size: 18px;
     margin: 6px 0;
 }
+
+/* Manual input */
+#manualInput {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid var(--main-red);
+    border-radius: 0;
+    margin-top: 15px;
+}
+
+#manualBtn {
+    padding: 10px 20px;
+    background: var(--main-red);
+    color: white;
+    border: none;
+    margin-left: 10px;
+}
 </style>
 </head>
 
@@ -107,24 +125,100 @@ header {
 <div class="content">
 
     <h2>Local Weather Update</h2>
-    <p>Here is your totally real, definitely accurate weather forecast.</p>
+    <p>This page detects your location or lets you enter one manually.</p>
 
-    <div class="weather-box">
-        <div class="weather-title">Today's Weather</div>
-        <div class="weather-detail"><strong>Temperature:</strong> 14°C</div>
-        <div class="weather-detail"><strong>Condition:</strong> Mostly Cloudy</div>
-        <div class="weather-detail"><strong>Wind:</strong> 12 km/h NW</div>
-        <div class="weather-detail"><strong>Humidity:</strong> 68%</div>
+    <!-- Location box -->
+    <div id="location-box"
+         style="background:#f7f7f7; padding:15px; border:1px solid #ccc; border-radius:6px; margin-top:20px;">
+         Detecting your location…
     </div>
 
-    <div class="weather-box">
-        <div class="weather-title">Tomorrow's Forecast</div>
-        <div class="weather-detail"><strong>High:</strong> 18°C</div>
-        <div class="weather-detail"><strong>Low:</strong> 9°C</div>
-        <div class="weather-detail"><strong>Condition:</strong> Light Rain</div>
+    <!-- Manual input -->
+    <div style="margin-top:20px; text-align:center;">
+        <input id="manualInput" type="text" value="city, region, country">
+        <button id="manualBtn">Use Location</button>
+    </div>
+
+    <!-- Weather output -->
+    <div class="weather-box" id="weather-output" style="display:none;">
+        <div class="weather-title">Weather</div>
+        <div class="weather-detail" id="w-temp"></div>
+        <div class="weather-detail" id="w-cond"></div>
+        <div class="weather-detail" id="w-wind"></div>
     </div>
 
 </div>
+
+<script>
+// Remove placeholder text on click
+const manualInput = document.getElementById("manualInput");
+manualInput.addEventListener("focus", () => {
+    if (manualInput.value === "city, region, country") {
+        manualInput.value = "";
+    }
+});
+
+// Restore placeholder if empty on blur
+manualInput.addEventListener("blur", () => {
+    if (manualInput.value.trim() === "") {
+        manualInput.value = "city, region, country";
+    }
+});
+
+// Fake weather generator
+function showWeather(locationName) {
+    document.getElementById("weather-output").style.display = "block";
+    document.getElementById("w-temp").textContent = "Temperature: 14°C";
+    document.getElementById("w-cond").textContent = "Condition: Mostly Cloudy";
+    document.getElementById("w-wind").textContent = "Wind: 12 km/h NW";
+
+    document.getElementById("location-box").innerHTML =
+        "Location: " + locationName;
+}
+
+// Manual input button
+document.getElementById("manualBtn").addEventListener("click", () => {
+    let loc = manualInput.value.trim();
+    if (loc !== "" && loc !== "city, region, country") {
+        showWeather(loc);
+    }
+});
+
+// Geolocation success
+function successLocation(position) {
+    const lat = position.coords.latitude.toFixed(4);
+    const lon = position.coords.longitude.toFixed(4);
+
+    showWeather("GPS Location (" + lat + ", " + lon + ")");
+}
+
+// Fallback to IP
+function fallbackToIP() {
+    fetch("https://ipapi.co/json/")
+        .then(res => res.json())
+        .then(data => {
+            showWeather(data.city + ", " + data.region);
+        })
+        .catch(() => {
+            document.getElementById("location-box").innerHTML =
+                "Unable to determine location.";
+        });
+}
+
+// Try geolocation first
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            successLocation,
+            fallbackToIP
+        );
+    } else {
+        fallbackToIP();
+    }
+}
+
+window.onload = getLocation;
+</script>
 
 </body>
 </html>
