@@ -1,3 +1,1 @@
-I am doing this for a school project.
-
-https://melvin-austin.github.io/mock-news-site/
+Sites Url:https://melvin-austin.github.io/mock-news-site/
