@@ -7,8 +7,8 @@
 <style>
 :root {
     --main-red:#8b0000;
-    --gold:#e6c34a;
-    --content-bg:#d9d9d9;
+    --gold:#e6c34a;       /* brighter gold */
+    --content-bg:#d9d9d9; /* darker gray */
 }
 
 body {
@@ -53,7 +53,7 @@ header {
     padding: 0 15px 40px 15px;
 }
 
-/* Gold banner ad */
+/* Gold banner ad (same size as headlines page) */
 .bigAd {
     background: var(--gold);
     padding: 25px;
@@ -73,6 +73,26 @@ header {
     padding: 20px;
     border-radius: 6px;
 }
+
+/* Video container */
+.video-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+video {
+    border-radius: 6px;
+}
+
+/* Script box */
+#script-box {
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+    margin-top: 20px;
+    white-space: pre-wrap;
+}
 </style>
 </head>
 
@@ -89,13 +109,35 @@ header {
 <div class="page-container">
 <div class="content">
 
+    <!-- Gold banner ad -->
     <div class="bigAd">BUY THIS THING YOU DON'T NEED</div>
 
-    <h2>Your Civics Project Goes Here</h2>
-    <p>You can add anything you want to this page.</p>
+    <h2>Your Civics Project Video</h2>
+
+    <!-- Video (same style as main page) -->
+    <div class="video-container">
+        <video autoplay loop muted playsinline width="560">
+            <source src="Breaking-News.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <h2 style="margin-top:40px;">Civics Script</h2>
+
+    <!-- Script output -->
+    <pre id="script-box">Loading script...</pre>
 
 </div>
 </div>
+
+<script>
+fetch("Mock_News_Script.txt")
+    .then(r => r.text())
+    .then(t => document.getElementById("script-box").textContent = t)
+    .catch(() => {
+        document.getElementById("script-box").textContent =
+            "Error loading script.";
+    });
+</script>
 
 </body>
 </html>
