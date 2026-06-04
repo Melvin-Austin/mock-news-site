@@ -187,24 +187,29 @@ video {
 <script>
 let adsEnabled = true;
 
+// Search bar behavior (remove ads)
 document.getElementById("searchBar").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         let value = this.value.toLowerCase().trim();
+
         if (value === "remove-ads") {
             adsEnabled = false;
             document.querySelector(".bigAd").style.display = "none";
             alert("Ads removed.");
         }
+
         this.value = "";
     }
 });
 
+// Popup ad timing
 window.onload = function() {
     setTimeout(() => {
         document.getElementById("popupAd").style.display = "block";
     }, 800);
 };
 
+// Close popup
 document.getElementById("popupClose").addEventListener("click", function() {
     document.getElementById("popupAd").style.display = "none";
 });
