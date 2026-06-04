@@ -7,7 +7,7 @@
 <style>
 :root {
     --main-red:#8b0000;
-    --gold:#e6c34a;       /* brighter gold */
+    --gold:#e6c34a;       /* brighter gold (still used for theme if needed) */
     --content-bg:#d9d9d9; /* darker gray */
 }
 
@@ -68,18 +68,6 @@ header {
     padding: 0 15px 40px 15px;
 }
 
-/* Gold banner ad (same size as headlines page) */
-.bigAd {
-    background: var(--gold);
-    padding: 25px;
-    border: 3px solid #000;
-    font-size: 26px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-    border-radius: 0;
-}
-
 /* Slightly darker content box */
 .content {
     width: 70%;
@@ -121,16 +109,13 @@ video, iframe {
     <a href="current-weather-report.html">Current Weather Report</a>
 </div>
 
-<!-- ⭐ Search bar added here -->
+<!-- Search bar -->
 <div id="searchBarContainer">
     <input id="searchBar" type="text" placeholder="Search the site...">
 </div>
 
 <div class="page-container">
 <div class="content">
-
-    <!-- Gold banner ad -->
-    <div class="bigAd">BUY THIS THING YOU DON'T NEED</div>
 
 <h2>Civics News For Canadians:</h2>
 
@@ -146,10 +131,9 @@ video, iframe {
     </iframe>
 </div>
 
-    <h2 style="margin-top:40px;">Civics Script</h2>
+<h2 style="margin-top:40px;">Civics Script</h2>
 
-    <!-- Script output -->
-    <pre id="script-box">Loading script...</pre>
+<pre id="script-box">Loading script...</pre>
 
 </div>
 </div>
