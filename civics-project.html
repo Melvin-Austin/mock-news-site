@@ -146,7 +146,20 @@ fetch("Mock_News_Script.txt")
         document.getElementById("script-box").textContent =
             "Error loading script.";
     });
+
+// Search bar behavior
+document.getElementById("searchBar").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        let value = this.value.toLowerCase().trim();
+
+        // You can change this to anything you want later
+        if (value === "remove-ads") {
+            alert("There are no ads on this page.");
+        }
+
+        this.value = "";
+    }
+});
 </script>
 
-</body>
 </html>
