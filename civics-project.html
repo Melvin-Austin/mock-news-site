@@ -46,6 +46,21 @@ header {
     text-decoration: underline;
 }
 
+/* Search bar */
+#searchBarContainer {
+    background: var(--main-red);
+    padding: 10px;
+    text-align: center;
+}
+
+#searchBar {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 0;
+}
+
 /* Page layout */
 .page-container {
     max-width: 900px;
@@ -80,7 +95,7 @@ header {
     margin-top: 15px;
 }
 
-video {
+video, iframe {
     border-radius: 6px;
 }
 
@@ -104,6 +119,11 @@ video {
     <a href="todays-headlines.html">Todays Headlines</a>
     <a href="civics-project.html">Civics Project</a>
     <a href="current-weather-report.html">Current Weather Report</a>
+</div>
+
+<!-- ⭐ Search bar added here -->
+<div id="searchBarContainer">
+    <input id="searchBar" type="text" placeholder="Search the site...">
 </div>
 
 <div class="page-container">
