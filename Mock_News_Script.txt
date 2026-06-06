@@ -1,1 +1,154 @@
-The "Mock_News_Script" Is loaded And Being Displayed
+Austin's Mock News Channel
+FULL EPISODE SCRIPT
+Hosts: Austin (Main) & Travis (Co-host)
+
+PART 1 — Universal Intro
+(Use this section every episode — record once, reuse)
+
+AUSTIN: Hello and welcome back to Austin's Mock News Channel — the only news show where we fact-check everything... mostly. I'm your host Austin, and joining me today is my incredibly professional co-host, Travis.
+
+
+TRAVIS:  Hello. Sorry about that. Welcome to OUR Mock News Channel. Co-host Travis here to talk about important stuff you don't care about right? 
+
+PART 2 — Episode-Specific Intro
+(Swap this section each episode)
+
+AUSTIN: Today we have a packed show for you. We'll be taking a look at the cost of living crisis hitting Canadians right in the wallet —
+TRAVIS: Spoiler: It's alot.
+AUSTIN: — the Maple Avenue Bridge closure right here in Sussex, New Brunswick —
+TRAVIS: Austin, I wish they just fixed it over the years a little so it wouldn't be out for construction this long.
+
+AUSTIN: — we'll be going global with a look at AI surveillance and just how much of your face the internet actually owns —
+TRAVIS: The answer is: a lot of your face is actually.
+
+AUSTIN: — and finally, we'll be covering Indigenous water rights here in Canada. A story that matters, and one that's long overdue for more attention.
+TRAVIS: That one we're taking seriously. No jokes. (beat) ..Mostly.
+AUSTIN: Stick around. It's going to be a good one. Let's get into it.
+
+[Intro music / transition]
+
+STORY 1 — Cost of Living & Affordability (Canadian Issue)
+Approx. 1–2 minutes
+
+[Show graphic: Canadian flag or grocery store image]
+
+AUSTIN: Alright, let's talk about something that affects every single Canadian — the cost of living. And no, Travis, we're not just talking about your coffee addiction.
+TRAVIS: Hey, coffee is a necessity, if you're in town.
+AUSTIN: It is very much not. But here's what IS a problem — according to Statistics Canada, right now 4.5 million Canadians are living below the poverty line. That's roughly one in every nine people in this country. And that number has jumped from just 7% in 2020 to 11% today.
+TRAVIS: Look around your next family dinner. Statistically, someone at that table is struggling. And that's not a joke — that's a real number from StatCan.
+AUSTIN: And groceries aren't helping. According to Canada's Food Price Report 2026, food prices are over 30% higher than they were in 2019. A family of four is now expected to spend over seventeen thousand dollars just on food this year alone.
+TRAVIS: Seventeen thousand dollars I could get little car for that I think...
+AUSTIN: It gets worse. Shelter costs — that's rent, mortgage, utilities, all of it — rose 28.5% between 2020 and 2025 according to Statistics Canada. In 2000, a household spent about 18% of their income on housing. Today that number is closer to 29%.
+TRAVIS: So basically every paycheck is going straight to your home before you even get to spend it on fun stuff like a vacation?
+AUSTIN: Wages have not kept up either. The Fraser Institute reported that from 2014 to 2025, food prices alone rose 44% while other consumer prices rose around 29%. And according to Policy Options, for the past twenty years median wages in Canada have grown slower than the actual cost of living — meaning your dollar buys less today than it did when your parents were your age.
+TRAVIS: So we're working harder, paying more, and getting less back. Cool, Love that for us.
+AUSTIN: The federal government under Prime Minister Mark Carney has promised affordability plans, but critics including the Fraser Institute say progress has been slow and prices remain well above where they were a decade ago. For young Canadians especially — who are entering a job market full of part-time and gig work — this issue isn't going away anytime soon.
+TRAVIS: Wondering how to save up for nice things? Me too.
+
+AUSTIN: Up next — something a little closer to home. Literally.
+
+[Transition]
+
+STORY 2 — Sussex Maple Avenue Bridge Closure (Local Issue)
+Approx. 1–2 minutes
+
+[Show graphic: photo of Maple Avenue Bridge or Sussex NB map]
+
+AUSTIN: Now let's bring it home — literally. Right here in Sussex, New Brunswick, one of the town's most important bridges has been shut down, and nobody knows when, or even if, it's coming back.
+TRAVIS: Wait — The big concrete bridge right near the Fire Department?
+AUSTIN: The Trout Creek bridge on Maple Avenue. It's been a part of this community for ninety years. And according to CBC News, it was closed by the province in March 2026 after large cracks were found splintering through its concrete foundation. There's also a hole in the sidewalk that goes straight through to the creek below.
+TRAVIS: A hole. In the sidewalk. That's not a bridge anymore that's a accident one step away.
+AUSTIN: The town's deputy mayor described the closure as causing 'extreme disappointment.' Maple Avenue is one of Sussex's central streets — this isn't a back road nobody uses. This is a main community connection that people rely on every single day.
+TRAVIS: And now residents have to take detours around a bridge that should have been repaired way before it got to this point it's very annoying I almost went dow nthere when it first happend I forgot a couple times...
+AUSTIN: Exactly. And the Town of Sussex itself put out a statement saying the closure is 'deeply impacting' the community, while they continue to push the provincial Department of Transportation and Infrastructure to move faster on a solution. As of right now — no timeline has been given for repairs or replacement.
+TRAVIS: Ninety years of service and it just gets shut down with no plan. I feel like if this bridge were in Fredericton it would have been fixed already.
+AUSTIN: That's actually a really important point, Local communities — especially smaller ones — often have less political power to push for infrastructure funding than larger cities do. That's representation in action. Or in this case... the lack of it.
+TRAVIS: I just want the bridge back it's a faster way home.
+AUSTIN: Up next — we zoom out. Way out.
+
+[Transition]
+
+STORY 3 — AI Surveillance & Facial Recognition (Global Issue)
+Approx. 1–2 minutes
+
+[Show graphic: camera or facial recognition overlay image]
+
+AUSTIN: Alright, let's go global. Have you ever wondered how much of your face is out there on the internet being tracked without your knowledge? The answer, according to researchers and privacy experts, is a lot more than you'd be comfortable with.
+TRAVIS: I'd think my face is my own so how is it on the internet? I don't even use social media.
+AUSTIN: Well — legally, that's actually becoming a major debate worldwide. Facial recognition technology, powered by artificial intelligence, is now a massive global industry. According to statistics, the facial recognition market was worth 5.73 billion US dollars in 2025, and it's growing fast — projected to hit nearly 14.5 billion by 2031.
+TRAVIS: Billion?  That's an enormous amount of money being made off of people's faces.
+AUSTIN: And here's the concern — in authoritarian countries, governments are using this technology for mass surveillance. Tracking protesters. Monitoring minority groups. Suppressing people who speak out. But even in democracies like Canada and the UK, there are major questions being raised.
+TRAVIS: Like... can people just scan your face without your permission?
+AUSTIN: That's exactly the debate. In the UK, London's Metropolitan Police have made over a thousand arrests using facial recognition, but civil liberties groups argue it violates the right to privacy and freedom of assembly. The European Union just passed the EU AI Act, which came into force in 2024 and becomes fully applicable in August 2026 — it bans certain high-risk AI uses including social scoring systems and classifies law enforcement facial recognition as high-risk.
+TRAVIS: So they are just always taking photos? What if someone is wrong fully detected. 
+
+AUSTIN: Here's the thing — unlike a password, you can't change your face. If your bio-metric data is breached or misused, that's permanent. Privacy International calls this one of the most serious threats to civil liberties in the modern world. For young people especially, who grew up posting photos online, this issue hits very close to home.
+TRAVIS: I'm starting to think all our photos of us are just there forever cant we remove them? 
+
+AUSTIN: Too late for both of us. Coming up — our most important story of the day.
+
+[Transition]
+
+STORY 4 — Indigenous Water Rights in Canada (Human Rights Story)
+Approx. 1–2 minutes
+
+[Tone shift — more serious here. Travis holds back on jokes.]
+[Show graphic: clean water imagery or First Nations community photo]
+
+AUSTIN: Our final story today is one that we think every Canadian needs to know about — and frankly, one that should make all of us uncomfortable. Right now, in 2026, there are 39 long-term drinking water advisories in effect across 37 First Nations communities in Canada. That means people cannot safely drink water out of their taps.
+TRAVIS: What its its 2026 come on guys we gotta get better at all this. 
+AUSTIN: In Canada. In 2026. According to Indigenous Services Canada, some of these advisories have been in place for over thirty years. Entire generations of Indigenous children have grown up never knowing what it's like to just turn on a tap and drink the water safely.
+TRAVIS: Every single person watching this has done that today. Multiple times. Without even thinking about it.
+AUSTIN: Exactly. And this isn't just a logistical problem — it's a human rights issue. The United Nations Declaration on the Rights of Indigenous Peoples, which Canada has signed, recognizes the right to clean water as a fundamental human right. The Canadian government under former Prime Minister Justin Trudeau promised to end all boil water advisories by 2021. That deadline passed. Many communities still wait.
+TRAVIS: So a promise was made. And people are still waiting hm that’s interesting...
+AUSTIN: Canada's own Auditor General rated the government's progress on this issue as — and I'm quoting here — 'unsatisfactory' in 2025. The current federal government under Prime Minister Mark Carney has promised new legislation, but as the Council of Canadians notes, there's been very little sense of urgency. The federal government has also been criticized for under funding water system maintenance on reserves by an estimated 138 million dollars per year according to the Parliamentary Budget Officer.
+TRAVIS: 138 million. The government found billions for other things. But clean water for Indigenous communities keeps getting delayed everyone should have fresh clean water we need it.
+AUSTIN: This connects directly to Section 35 of the Canadian Constitution, which recognizes and affirms Indigenous rights, and to the UN Declaration on the Rights of Indigenous Peoples. The people most affected are represented — or supposed to be represented — by First Nations leadership, Indigenous Services Canada, and ultimately, all of us as Canadian citizens who elect the governments making these decisions.
+TRAVIS: That last part is on us. Genuinely.
+AUSTIN: It really is. This is what civic responsibility looks like — understanding that rights on paper mean nothing if the systems to protect them aren't funded and enforced. Alright — let's wrap up.
+
+[Transition to closing]
+
+CLOSING SEGMENT
+Approx. 30–60 seconds
+
+AUSTIN: That's our show for today. We covered a lot — the cost of living squeezing Canadian families, a ninety-year-old bridge in our own backyard falling apart with no plan to fix it, AI technology that can track your face without your consent, and Indigenous communities still waiting for clean drinking water that the rest of us take for granted every single day.
+TRAVIS: So... normal Tuesday content.
+AUSTIN: These aren't just news stories. They're civics in action. They're about who gets represented, whose rights get protected, and what values actually drive the decisions our governments make. And here's the thing — we're the generation that's going to be voting on these issues, living with these consequences, and eventually making these decisions ourselves.
+TRAVIS: Pff no pressure.
+AUSTIN: A little pressure. That's kind of the point. Stay informed, stay curious, and hold the people in power accountable. I'm Austin —
+TRAVIS: I'm Travis — and we will be right back. (beat) We won't. That's the end. Goodbye.
+
+[Outro music plays]
+[Credits roll — include names, class, date, and all sources listed below]
+
+MASTER SOURCES LIST
+
+Story 1 — Cost of Living & Affordability
+1. Statistics Canada — statcan.gc.ca
+2. Canada's Food Price Report 2026
+3. Fraser Institute — fraserinstitute.org — 'Affordability remains a big problem in Canada despite Carney's claims' (April 2026)
+4. Policy Options / IRPP — policyoptions.irpp.org — 'Canadians aren't imagining the cost-of-living crisis' (February 2026)
+5. money.ca — 'Canada's poverty rate hits 11%' (citing TD Economics and StatCan)
+
+Story 2 — Sussex Bridge Closure
+1. CBC News — 'Extreme disappointment as province closes key Sussex bridge' (March 14, 2026) — cbc.ca
+2. CTV Atlantic — 'Maple Avenue Bridge in Sussex, N.B., closed due to deteriorated condition' (March 11, 2026) — ctvnews.ca
+3. CTV Atlantic — 'It's unacceptable: Replacement bridge needed for N.B. town' (March 28, 2026) — ctvnews.ca
+4. Town of Sussex Official Website — sussex.ca
+
+Story 3 — AI Surveillance & Facial Recognition
+1. Statista — Facial Recognition Market Forecast 2025–2031
+2. Privacy International — 'Toward Regulation: Addressing the Legal Void in Facial Recognition Technology' — privacyinternational.org
+3. Mayer Brown Global Privacy Watchlist — 'Facial Recognition Laws Update' (January 2026) — mayerbrown.com
+4. ISACA — 'Facial Recognition and Privacy Concerns in the Age of AI' (2025) — isaca.org
+5. EU AI Act — Official European Union legislation (entered into force August 2024, fully applicable August 2026)
+
+Story 4 — Indigenous Water Rights
+1. Indigenous Services Canada — 'Ending long-term drinking water advisories' — sac-isc.gc.ca (updated May 2026)
+2. Council of Canadians — 'Safe Water for First Nations' — canadians.org
+3. CBC News — 'Northern Ontario Chiefs call for immediate federal action amid clean-water crisis' (December 2025) — cbc.ca
+4. Indigenous Watchdog — 'Drinking Water Advisories' — indigenouswatchdog.org
+5. CUPE — 'Water is life: The fight for clean drinking water continues' — cupe.ca
+6. Parliamentary Budget Officer — Identified $138M/year funding deficit for water systems on reserve
+7. UN Declaration on the Rights of Indigenous Peoples (UNDRIP) — un.org
